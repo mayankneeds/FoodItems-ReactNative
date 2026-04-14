@@ -63,10 +63,7 @@ npm start
 
 ## 📱 Screenshots
 
-<p align="center">
-  <img src="assets/screenshots/categories.png" width="300" alt="Categories Screen" />
-  <img src="assets/screenshots/meals_overview.png" width="300" alt="Meals Overview Screen" />
-</p>
+*Coming Soon...*
 
 ---
 

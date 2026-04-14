@@ -3,11 +3,11 @@ import { Image, View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import PressableView from "./PressableView";
 
 
-function FoodItem({ imageUrl, title, desc }) {
+function FoodItem({ imageUrl, title, desc, onPress }) {
     const [isLoading, setIsLoading] = useState(false);
 
     return (
-        <PressableView style={styles.container}>
+        <PressableView style={styles.container} onPress={onPress}>
             <View>
                 <View style={styles.imageContainer}>
                     <Image
