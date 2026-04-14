@@ -3,23 +3,14 @@ import { useRoute } from "@react-navigation/native";
 import { MEALS } from "../data/dummy-data";
 import { FlatList, StyleSheet, View } from "react-native";
 
-function MealsOverViewScreen({ navigation }) {
+function MealsOverViewScreen() {
     const route = useRoute()
     const categoryId = route.params.categoryId
 
     const dispalyedmeals = MEALS.filter((mealItem) => mealItem.categoryIds.includes(categoryId))
 
     function renderMealItem(itemData) {
-        function pressHandler() {
-            navigation.navigate('MealDetail', { mealId: itemData.item.id })
-        }
-
-        return <FoodItem
-            title={itemData.item.title}
-            desc={itemData.item.duration + " " + itemData.item.complexity + " " + itemData.item.affordability}
-            imageUrl={itemData.item.imageUrl}
-            onPress={pressHandler}
-        />
+        return <FoodItem title={itemData.item.title} desc={itemData.item.duration + " " + itemData.item.complexity + " " + itemData.item.affordability} imageUrl={itemData.item.imageUrl} />
     }
 
     return <View style={styles.container}>
