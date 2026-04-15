@@ -6,6 +6,8 @@ A vibrant and responsive React Native application built with Expo that allows us
 
 - **Category Browsing**: Explore a wide range of food categories like Italian, Mexican, Hamburgers, and more.
 - **Meal Overview**: Dedicated screens for viewing meals within a specific category with details and images.
+- **Favorites System**: Save your favorite meals and access them instantly through a dedicated Favorites screen.
+- **Global State Management**: Powered by React Context API for seamless data sharing across components.
 - **Native Navigation**: Seamless transitions using `@react-navigation/native-stack`.
 - **Responsive UI**: Optimized layouts using custom components and React Native's styling system.
 
@@ -13,6 +15,7 @@ A vibrant and responsive React Native application built with Expo that allows us
 
 - **Framework**: [React Native](https://reactnative.dev/) via [Expo](https://expo.dev/)
 - **Navigation**: [React Navigation 7](https://reactnavigation.org/)
+- **State Management**: React Context API
 - **Styling**: Vanilla React Native StyleSheet
 - **Icons**: Expo Vector Icons
 
@@ -24,8 +27,9 @@ FoodApp/
 ├── components/       # Reusable UI components (FoodItem, PressableView, etc.)
 ├── data/             # Mock data (dummy-data.js)
 ├── models/           # Data models (category.js, meal.js)
-├── screens/          # Main application screens (Categories, MealsOverview)
-├── App.js            # Root component & Navigation setup
+├── screens/          # Main application screens (Categories, MealsOverview, Favorite)
+├── store/            # Global state management (Favorites Context)
+├── App.js            # Root component, Navigation setup & Context Provider
 └── package.json      # Dependencies and scripts
 ```
 
