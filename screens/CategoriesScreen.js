@@ -24,7 +24,7 @@ function CategoriesScreen({ navigation }) {
         numColumns={2}
         columnWrapperStyle={{ gap: 16 }}
         contentContainerStyle={{ gap: 16, padding: 16 }}
-        ListFooterComponent={
+        ListHeaderComponent={
             <View style={styles.footer}>
                 <Button title="Favorite" onPress={goToFavorite} />
             </View>
