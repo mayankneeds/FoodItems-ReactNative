@@ -64,8 +64,9 @@ npm start
 ## 📱 Screenshots
 
 <div align="center">
-  <img src="assets/screenshots/categories.png" width="300" alt="Categories Screen" />
-  <img src="assets/screenshots/meals_overview.png" width="300" alt="Meals Overview Screen" />
+  <img src="assets/screenshots/categories.png" width="280" alt="Categories Screen" />
+  <img src="assets/screenshots/meals_overview.png" width="280" alt="Meals Overview Screen" />
+  <img src="assets/screenshots/favorites_screen.png" width="280" alt="Favorites Screen" />
 </div>
 
 ---
