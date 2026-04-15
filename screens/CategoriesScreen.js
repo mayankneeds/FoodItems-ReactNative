@@ -1,6 +1,6 @@
 import CategoryGridTile from '../components/CategoryGridTile';
 import { CATEGORIES } from '../data/dummy-data'
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, Button, View } from 'react-native';
 
 
 function CategoriesScreen({ navigation }) {
@@ -14,15 +14,28 @@ function CategoriesScreen({ navigation }) {
         return <CategoryGridTile bgColor={itemData.item.color} onPress={pressHandler}>{itemData.item.title}</CategoryGridTile>
     }
 
-
+    function goToFavorite() {
+        navigation.navigate('Favorite')
+    }
 
     return <FlatList data={CATEGORIES}
         keyExtractor={(item) => item.id}
         renderItem={renderCategoryItems}
         numColumns={2}
         columnWrapperStyle={{ gap: 16 }}
-        contentContainerStyle={{ gap: 16, padding: 16 }} />
+        contentContainerStyle={{ gap: 16, padding: 16 }}
+        ListFooterComponent={
+            <View style={styles.footer}>
+                <Button title="Favorite" onPress={goToFavorite} />
+            </View>
+        } />
 }
+
+const styles = StyleSheet.create({
+    footer: {
+        marginTop: 16,
+    }
+});
 
 
 

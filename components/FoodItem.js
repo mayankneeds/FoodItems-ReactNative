@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Image, View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { Image, View, Text, StyleSheet, ActivityIndicator, Pressable } from "react-native";
 import PressableView from "./PressableView";
+import { Ionicons } from '@expo/vector-icons';
 
 
-function FoodItem({ imageUrl, title, desc }) {
+
+function FoodItem({ imageUrl, title, desc, isFavorite, toggleFavoriteHandler }) {
     const [isLoading, setIsLoading] = useState(false);
 
     return (
@@ -16,6 +18,21 @@ function FoodItem({ imageUrl, title, desc }) {
                         onLoadStart={() => setIsLoading(true)}
                         onLoadEnd={() => setIsLoading(false)}
                     />
+                    <View style={styles.starContainer}>
+                        <Pressable
+                            onPress={toggleFavoriteHandler}
+                            style={({ pressed }) => [
+                                styles.starButton,
+                                pressed && styles.pressed
+                            ]}
+                        >
+                            <Ionicons
+                                name={isFavorite ? "star" : "star-outline"}
+                                size={24}
+                                color={isFavorite ? "#ffc107" : "white"}
+                            />
+                        </Pressable>
+                    </View>
                     {isLoading && (
                         <View style={styles.loadingContainer}>
                             <ActivityIndicator size="small" color="#351401" />
@@ -50,6 +67,21 @@ const styles = StyleSheet.create({
     },
     loadingContainer: {
         position: 'absolute',
+    },
+    starContainer: {
+        position: 'absolute',
+        top: 8,
+        right: 8,
+        zIndex: 1,
+    },
+    starButton: {
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        borderRadius: 20,
+        padding: 6,
+    },
+    pressed: {
+        opacity: 0.7,
+        transform: [{ scale: 0.9 }],
     },
     title: {
         fontSize: 20,

@@ -1,17 +1,15 @@
 import FoodItem from "../components/FoodItem";
-import { useRoute } from "@react-navigation/native";
 import { MEALS } from "../data/dummy-data";
 import { FlatList, StyleSheet, View } from "react-native";
 import { useContext } from "react";
 import { FavoritesContext } from "../store/context/favorites-context";
 
-
-function MealsOverViewScreen() {
+function FavoriteScreen() {
     const favoriteCtx = useContext(FavoritesContext);
-    const route = useRoute()
 
-    const categoryId = route.params.categoryId
-    const dispalyedmeals = MEALS.filter((mealItem) => mealItem.categoryIds.includes(categoryId))
+    const dispalyedmeals = MEALS.filter((mealItem) => {
+        return favoriteCtx.ids.includes(mealItem.id);
+    });
 
     function toggleFavoriteHandler(id) {
         if (favoriteCtx.ids.includes(id)) {
@@ -28,7 +26,8 @@ function MealsOverViewScreen() {
             desc={itemData.item.duration + " " + itemData.item.complexity + " " + itemData.item.affordability}
             imageUrl={itemData.item.imageUrl}
             isFavorite={mealIsFavorite}
-            toggleFavoriteHandler={() => toggleFavoriteHandler(itemData.item.id)} />
+            toggleFavoriteHandler={() => toggleFavoriteHandler(itemData.item.id)}
+        />
     }
 
     return <View style={styles.container}>
@@ -37,8 +36,7 @@ function MealsOverViewScreen() {
     </View>
 }
 
-
-export default MealsOverViewScreen;
+export default FavoriteScreen;
 
 const styles = StyleSheet.create({
     container: {
